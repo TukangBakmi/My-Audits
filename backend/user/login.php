@@ -57,7 +57,7 @@ function authenticateUser($conn, $npk, $password)
 
                 if ($res->num_rows == 0) {
                     // Insert to visitor
-                    $stmt = $conn->prepare("INSERT INTO visitor (id_user, npk_user, full_name) VALUES(?, ?, ?)");
+                    $stmt = $conn->prepare("INSERT INTO visitor (id_user, npk_user, full_name, logged_out) VALUES(?, ?, ?, 'false')");
                     $stmt->bind_param("iis", $idUser, $npkUser, $name);
                     if($stmt->execute()){
                         setSessionUser($idUser, $npkUser, $name, $email, $position, $date);
