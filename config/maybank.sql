@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2025 at 02:51 PM
+-- Generation Time: May 08, 2025 at 04:06 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -84,7 +84,8 @@ CREATE TABLE `file` (
 --
 
 INSERT INTO `file` (`id`, `nama`, `size`, `directory`, `uploaded_by`, `date_uploaded`) VALUES
-(1, 'Copy of FR-UBM-0.0.5.1 V0.R1 Daftar Hadir(1).xls', 200704, '../../assets/uploads/Copy of FR-UBM-0.0.5.1 V0.R1 Daftar Hadir(1).xls', 0, '2024-11-05 01:24:54');
+(1, 'Copy of FR-UBM-0.0.5.1 V0.R1 Daftar Hadir(1).xls', 200704, '../../assets/uploads/Copy of FR-UBM-0.0.5.1 V0.R1 Daftar Hadir(1).xls', 0, '2024-11-05 01:24:54'),
+(2, 'Copy of FR-UBM-0.0.5.1 V0.R1 Daftar Hadir(1) (1).xls', 200704, '../../assets/uploads/Copy of FR-UBM-0.0.5.1 V0.R1 Daftar Hadir(1) (1).xls', 0, '2025-05-08 21:03:52');
 
 -- --------------------------------------------------------
 
@@ -109,7 +110,11 @@ CREATE TABLE `log_download` (
 --
 
 INSERT INTO `log_download` (`id`, `id_file`, `file_name`, `file_size`, `id_user`, `full_name`, `npk_user`, `position`, `date_downloaded`) VALUES
-(1, 0, 'Copy of FR-UBM-0.0.5.1 V0.R1 Daftar Hadir(1).xls', 200704, 0, 'Felix Savero', 412020015, 'Audit Supervisor', '2024-11-05 01:26:02');
+(2, 1, 'Copy of FR-UBM-0.0.5.1 V0.R1 Daftar Hadir(1).xls', 200704, 1, 'Felix Savero', 412020015, 'Audit Supervisor', '2025-05-08 19:52:18'),
+(3, 1, 'Copy of FR-UBM-0.0.5.1 V0.R1 Daftar Hadir(1).xls', 200704, 1, 'Felix Savero', 412020015, 'Audit Supervisor', '2025-05-08 19:52:29'),
+(4, 1, 'Copy of FR-UBM-0.0.5.1 V0.R1 Daftar Hadir(1).xls', 200704, 2, 'Chelsy Kwan', 412020035, 'Chief Audit Officer', '2025-05-08 21:03:01'),
+(5, 2, 'Copy of FR-UBM-0.0.5.1 V0.R1 Daftar Hadir(1) (1).xls', 200704, 2, 'Chelsy Kwan', 412020035, 'Chief Audit Officer', '2025-05-08 21:04:25'),
+(6, 1, 'Copy of FR-UBM-0.0.5.1 V0.R1 Daftar Hadir(1).xls', 200704, 2, 'Chelsy Kwan', 412020035, 'Chief Audit Officer', '2025-05-08 21:04:37');
 
 -- --------------------------------------------------------
 
@@ -167,7 +172,8 @@ CREATE TABLE `shared_file` (
 --
 
 INSERT INTO `shared_file` (`id`, `nama_file`, `id_user`) VALUES
-(1, 'Copy of FR-UBM-0.0.5.1 V0.R1 Daftar Hadir(1).xls', 'everyone');
+(1, 'Copy of FR-UBM-0.0.5.1 V0.R1 Daftar Hadir(1).xls', 'everyone'),
+(2, 'Copy of FR-UBM-0.0.5.1 V0.R1 Daftar Hadir(1) (1).xls', '2');
 
 -- --------------------------------------------------------
 
@@ -190,7 +196,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `npk`, `nama_lengkap`, `email`, `password`, `id_position`, `date_joined`) VALUES
-(1, 412020015, 'Felix Savero', 'felix@gmail.com', '$2y$10$/l/3fVwSpdLBTAd0MhANlu3YYjHe.tV70BZ9ONSp7wXCbI2FLNXFe', 2, '2024-11-05 01:23:54');
+(1, 412020015, 'Felix Savero', 'felix@gmail.com', '$2y$10$/l/3fVwSpdLBTAd0MhANlu3YYjHe.tV70BZ9ONSp7wXCbI2FLNXFe', 2, '2024-11-05 01:23:54'),
+(2, 412020035, 'Chelsy Kwan', 'chelsy@gmail.com', '$2y$10$NcA4a4r2YcwdbQ2OUsNQM.uM2CvOIF55gMSOhBBdsIWQeutpRagwy', 1, '2025-05-08 21:01:41');
 
 -- --------------------------------------------------------
 
@@ -203,8 +210,8 @@ CREATE TABLE `visitor` (
   `id_user` int(11) NOT NULL,
   `npk_user` int(11) NOT NULL,
   `full_name` varchar(255) NOT NULL,
-  `date_login` datetime NOT NULL,
-  `date_logout` datetime NOT NULL,
+  `date_login` datetime NOT NULL DEFAULT current_timestamp(),
+  `date_logout` datetime DEFAULT NULL,
   `logged_out` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -213,8 +220,10 @@ CREATE TABLE `visitor` (
 --
 
 INSERT INTO `visitor` (`id`, `id_user`, `npk_user`, `full_name`, `date_login`, `date_logout`, `logged_out`) VALUES
-(1, 0, 412020015, 'Felix Savero', '0000-00-00 00:00:00', '0000-00-00 00:00:00', ''),
-(2, 0, 412020015, 'Felix Savero', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '');
+(7, 1, 412020015, 'Felix Savero', '2025-05-08 20:58:53', '2025-05-08 21:00:06', 'true'),
+(8, 1, 412020015, 'Felix Savero', '2025-05-08 21:01:58', '2025-05-08 21:02:43', 'true'),
+(9, 2, 412020035, 'Chelsy Kwan', '2025-05-08 21:02:30', '2025-05-08 21:05:07', 'true'),
+(10, 1, 412020015, 'Felix Savero', '2025-05-08 21:04:14', '2025-05-08 21:05:25', 'true');
 
 --
 -- Indexes for dumped tables
@@ -294,13 +303,13 @@ ALTER TABLE `admin_level`
 -- AUTO_INCREMENT for table `file`
 --
 ALTER TABLE `file`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `log_download`
 --
 ALTER TABLE `log_download`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `password_reset_tokens`
@@ -318,19 +327,19 @@ ALTER TABLE `position`
 -- AUTO_INCREMENT for table `shared_file`
 --
 ALTER TABLE `shared_file`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `visitor`
 --
 ALTER TABLE `visitor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
