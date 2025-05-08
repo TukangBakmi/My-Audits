@@ -1,0 +1,49 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+# Increase maximum POST file size to 10GB
+php_value upload_max_filesize 10G
+php_value post_max_size 10G
+
+# Increase the maximum number of file uploads to 2000
+php_value max_file_uploads 2000
+php_value max_input_vars 2000
+
+php_value memory_limit 10G
+php_value max_execution_time 3600
+
+# Rewrite rule for admin URL
+RewriteRule ^admin/$ admin/index.php [L]
+
+# Rewrite URLs to PHP files if the URL does not correspond to an existing directory or file
+RewriteCond %{SCRIPT_FILENAME} !-d 
+RewriteRule ^([^.]+)$ $1.php [NC,L]
+
+# Rewrite URLs to PHP files if the URL does not correspond to an existing directory or file
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+# Set the default directory index to views/index.php
+DirectoryIndex views/index.php
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /MyAudits/
+
+    # Allow access to views and admin
+    RewriteRule ^(views|admin)/ - [L]
+
+    # Deny access to all other directories and files
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(assets|backend|config|phpmailer|static|vendor) - [F]
+
+    # Deny access to specific files
+    <FilesMatch "(.htaccess|composer\.json|composer\.lock)">
+        Order allow,deny
+        Deny from all
+        Satisfy All
+    </FilesMatch>
+</IfModule>
+
+ErrorDocument 404 /MyAudits/views/index.php
