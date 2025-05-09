@@ -26,6 +26,29 @@ In environments where file confidentiality is critical (e.g., audits, internal r
 
 ## 📦 Installation
 
-**Clone this repo** to your local GitHub folder:
+1. **Clone this repo** to your local GitHub folder:
    ```bash
    git clone https://github.com/TukangBakmi/My-Audits.git
+   ```
+2. **Move the project folder** into your local server directory (e.g., `C:\xampp\htdocs\`).
+
+3. **Import the database**:
+   - Open [phpMyAdmin](http://localhost/phpmyadmin)
+   - Import the provided `.sql` file from the project
+
+4. **Run the application** in your browser:
+   ```
+   http://localhost/Nutrition-Expert-System
+   ```
+
+## 📸 Screenshots
+![image](https://github.com/user-attachments/assets/3a48531c-70b5-4bc8-9658-ab14312c1b15)
+
+## 🙋‍♂️ Author
+
+**Albert Ardiansyah**  
+📫 [@TukangBakmi on GitHub](https://github.com/TukangBakmi)
+
+## 📃 License
+
+This project is intended for educational and research purposes. For any use beyond that, please contact the author.
