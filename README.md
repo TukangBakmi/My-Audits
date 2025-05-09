@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/2d696e80-7d69-478e-95bc-a57dfa89980c)# My Audits
+# My Audits
 
 A file download tracking system designed to monitor and log access to sensitive files. This application helps administrators identify who downloaded specific files, when the download occurred, how often a file has been downloaded, and how large the downloaded files were — providing traceability in case of file leaks or misuse.
 
