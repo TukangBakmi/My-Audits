@@ -18,7 +18,7 @@ In environments where file confidentiality is critical (e.g., audits, internal r
 ## 🛠 Technologies Used
 
 - **PHP** — Backend logic
-- **MySQL/MariaDB** — Relational database to store user and download logs
+- **MySQL** — Relational database to store user and download logs
 - **HTML/CSS/JavaScript** — Frontend
 - **Bootstrap** — UI design
 - **jQuery & AJAX** — Interactivity and background requests
@@ -74,12 +74,7 @@ In environments where file confidentiality is critical (e.g., audits, internal r
 
 **Admin:**
 - NPK: `412020031`
-- Password: `admin123` (change after first login)
-
-**User:**
-- NPK: `412020015` (Felix Savero)
-- NPK: `412020035` (Chelsy Kwan)
-- Password: Check database or contact admin
+- Password: `Albert12`
 
 ## 📁 Project Structure
 
